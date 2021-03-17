@@ -90,7 +90,7 @@ namespace ContactForm.Pages
 
         public static Alert Error { get; } = new(
             "We're not sure what happened.",
-            "warning"
+            "danger"
         );
     };
 }
