@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@if (Model.Alert is not null)
+{
+    <div class="alert alert-@Model.Alert.CssClass" role="alert">
+        @Model.Alert.Text <br/>
+        <a href="@Url.PageLink()">Click here to refresh</a>
+    </div>
+}
+
+<form method="post" asp-page="Index">
+    <div class="form-group">
+        <label asp-for="Text"></label>
+        <textarea class="form-control" asp-for="Text" rows="3"></textarea>
+    </div>
+    <input asp-for="IdempotentToken" type="hidden" />
+    <button type="submit" class="btn btn-primary mb-2">Send Message</button>
+</form>
